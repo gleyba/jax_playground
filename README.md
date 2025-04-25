@@ -7,6 +7,17 @@ On ubuntu 24.04 x86_64:
 - wget https://github.com/bazelbuild/bazelisk/releases/download/v1.26.0/bazelisk-linux-amd64
 - chmod +x bazelisk-linux-amd64
 - sudo mv bazelisk-linux-amd64 /usr/local/bin/bazel
+- curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+- bash Anaconda3-2024.10-1-Linux-x86_64.sh
+- rm Anaconda3-2024.10-1-Linux-x86_64.sh
+- ~/anaconda3/bin/conda init
+- conda create --name JAX-060-CUDA-1251 python=3.12.8
+- conda activate JAX-060-CUDA-1251
+- conda install cuda-version=12.5
+- conda install nvidia/label/cuda-12.5.0::cuda-nvcc
+- conda install nvidia/label/cuda-12.5.0::libcublas-dev
+- conda install nvidia/label/cuda-12.5.0::cuda-nvml-dev
+- conda install -c nvidia cudnn
 
 After repo clone:
 

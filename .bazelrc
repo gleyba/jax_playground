@@ -1,6 +1,7 @@
 import %workspace%/jax/.bazelrc
 
-build --repo_env=HERMETIC_PYTHON_VERSION=3.12
+common --enable_workspace
+
 build --verbose_failures=true
 build --action_env=CLANG_COMPILER_PATH="/usr/lib/llvm-18/bin/clang"
 build --repo_env=CC="/usr/lib/llvm-18/bin/clang"
@@ -15,6 +16,11 @@ build --config=cuda_libraries_from_stubs
 build --action_env=CLANG_CUDA_COMPILER_PATH="/usr/lib/llvm-18/bin/clang"
 build --config=build_cuda_with_nvcc
 
+# Hermetic versions cause spurious rebuilds,
+# so there are `LOCAL_*` prefixed env var exports in `tools/bazel`
+# build --repo_env=HERMETIC_PYTHON_VERSION=3.12
+# build --repo_env=HERMETIC_CUDA_VERSION=12.5.0
+# build --repo_env=HERMETIC_CUDNN_VERSION=9.3.0
+
 build --disk_cache=~/bazel/disk_cache
 build --repository_cache=~/bazel/repository_cache
-# build --jobs=HOST_CPUS*2

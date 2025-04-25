@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eu
+
+export LOCAL_CUDA_PATH="${HOME}/anaconda3/envs/JAX-060-CUDA-1251/targets/x86_64-linux"
+export LOCAL_CUDNN_PATH="${HOME}/anaconda3/envs/JAX-060-CUDA-1251/targets/x86_64-linux"
+export LOCAL_NCCL_PATH="${HOME}/anaconda3/envs/JAX-060-CUDA-1251/targets/x86_64-linux"
+
+exec -a "$0" "${BAZEL_REAL}" "$@"
