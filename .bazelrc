@@ -24,3 +24,6 @@ build --config=build_cuda_with_nvcc
 
 build --disk_cache=~/bazel/disk_cache
 build --repository_cache=~/bazel/repository_cache
+build --spawn_strategy=sandboxed
+build --incompatible_strict_action_env
+build --experimental_reuse_sandbox_directories
