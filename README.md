@@ -51,10 +51,23 @@ The same can be done for XLA, just fork it on github and change origin for submo
 
 Then create a branch in `xla` subdirectory, commit changes and push
 
-#### Build wheels artifacts
+#### Build release wheels artifacts
 
 Just launch:
 
     ./build_wheels.sh
 
 The results would be in `./dist` directory
+
+#### Playground
+
+There is 'playground.py' file with JAX initialized to be ready to run from sources.
+To launch an examples, simply do:
+
+    bazel run //:playground
+
+On the first run it will build XLA and JAX from sources. 
+But subsequent runs will reuse already built artifacts and run python only.
+
+If you want to apply changes to XLA or JAX codebase, after doing so, it is easy to test changes by re-runing playground. 
+Bazel will incrementally build only changed parts of code.

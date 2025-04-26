@@ -4,6 +4,6 @@ py_binary(
     name = "playground",
     srcs = ["playground.py"],
     deps = [
-        "@jax//jax",
+        "@jax_repo//jax",
     ],
 )
